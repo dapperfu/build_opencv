@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+WORKSPACE=${WORKSPACE:-`pwd`}
+
 
 mkdir ${WORKSPACE}/build
 cd ${WORKSPACE}/build
