@@ -3,6 +3,7 @@ HERE=`pwd`
 
 mkdir ${HERE}/build
 cd ${HERE}/build
+
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
 	-D INSTALL_PYTHON_EXAMPLES=ON \
@@ -13,3 +14,5 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D PYTHON_EXECUTABLE=${HERE}/bin/python \
 	-D PYTHON2_EXECUTABLE=`which python2` \
 	-D BUILD_EXAMPLES=ON ${HERE}/opencv
+
+make -j6
