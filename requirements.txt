@@ -1,0 +1,8 @@
+numpy
+
+# 18.04: libjpeg-dev libpng-dev libtiff-dev
+# 18.04: libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# 18.04: libxvidcore-dev libx264-dev
+# 18.04: libopenblas-dev libhdf5-dev libtesseract-dev libleptonica-dev
+# 18.04: checkinstall cmake gfortran curl
+# 18.04: libatlas-base-dev liblapacke-dev liblapack-dev
