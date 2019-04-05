@@ -5,6 +5,8 @@ pipeline {
       steps {
         git(poll: true, url: 'https://github.com/jed-frey/build_opencv.git')
         sh '''
+# Update submodules
+git submodule update --init
 # Checkout OpenCV Source
 make  --directory=${WORKSPACE} src
 '''
