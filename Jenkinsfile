@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Git ') {
       steps {
-        git(poll: true, url: 'https://github.com/jed-frey/build_caffe.git')
+        git(poll: true, url: 'https://github.com/jed-frey/build_opencv.git')
       }
     }
     stage('Stage') {
@@ -11,9 +11,14 @@ pipeline {
         sh 'git submodule update --init'
       }
     }
-    stage('Build Caffe') {
+    stage('Stage') {
       steps {
-        sh 'make dist'
+        sh 'make env'
+      }
+    }
+    stage('Build OpenCV') {
+      steps {
+        sh './build.sh'
       }
     }
   }
