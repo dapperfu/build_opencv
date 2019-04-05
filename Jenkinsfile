@@ -8,5 +8,13 @@ pipeline {
 git submodule foreach git submodule update --init --depth=1 --jobs=4'''
       }
     }
+    stage('Build') {
+      steps {
+        timestamps() {
+          sh '${WORKSPACE}/build.sh'
+        }
+
+      }
+    }
   }
 }
