@@ -1,3 +1,6 @@
+opencv/
+opencv_contrib/
+
 ## M
 .env-*
 bin/
