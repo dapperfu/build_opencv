@@ -19,6 +19,7 @@ make --directory=${WORKSPACE} env
         timestamps() {
           sh '${WORKSPACE}/01_opencv_checkout.sh'
         }
+
       }
     }
     stage('CMake') {
@@ -26,6 +27,7 @@ make --directory=${WORKSPACE} env
         timestamps() {
           sh '${WORKSPACE}/02_cmake.sh'
         }
+
       }
     }
     stage('Build') {
@@ -33,6 +35,7 @@ make --directory=${WORKSPACE} env
         timestamps() {
           sh '${WORKSPACE}/03_build.sh'
         }
+
       }
     }
     stage('Package') {
@@ -40,6 +43,12 @@ make --directory=${WORKSPACE} env
         timestamps() {
           sh '${WORKSPACE}/04_package.sh'
         }
+
+      }
+    }
+    stage('Artifacts') {
+      steps {
+        archiveArtifacts(artifacts: '**.deb', allowEmptyArchive: true, fingerprint: true, onlyIfSuccessful: true)
       }
     }
   }
