@@ -2,7 +2,6 @@
 
 WORKSPACE=${WORKSPACE:-`pwd`}
 
-
 mkdir ${WORKSPACE}/build
 cd ${WORKSPACE}/build
 
@@ -16,5 +15,3 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D PYTHON_EXECUTABLE=${WORKSPACE}/bin/python \
 	-D PYTHON2_EXECUTABLE=`which python2` \
 	-D BUILD_EXAMPLES=ON ${WORKSPACE}/opencv
-
-make -j6

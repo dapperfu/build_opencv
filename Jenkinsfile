@@ -1,31 +1,45 @@
 pipeline {
   agent any
   stages {
-    stage('Git ') {
+    stage('Git') {
       steps {
         git(poll: true, url: 'https://github.com/jed-frey/build_opencv.git')
-        sh '''
-# Update submodules
-git submodule update --init
-# Checkout OpenCV Source
-make  --directory=${WORKSPACE} src
-'''
       }
     }
     stage('Create Environment ') {
       steps {
         sh '''
 # Create Python environment & install dependencies.
-make  --directory=${WORKSPACE} env
+make --directory=${WORKSPACE} env
 '''
+      }
+    }
+    stage('OpenCV Checkout') {
+      steps {
+        timestamps() {
+          sh '${WORKSPACE}/01_opencv_checkout.sh'
+        }
+      }
+    }
+    stage('CMake') {
+      steps {
+        timestamps() {
+          sh '${WORKSPACE}/02_cmake.sh'
+        }
       }
     }
     stage('Build') {
       steps {
         timestamps() {
-          sh '${WORKSPACE}/build.sh'
+          sh '${WORKSPACE}/03_build.sh'
         }
-
+      }
+    }
+    stage('Package') {
+      steps {
+        timestamps() {
+          sh '${WORKSPACE}/04_package.sh'
+        }
       }
     }
   }
