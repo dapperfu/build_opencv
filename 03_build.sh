@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-WORKSPACE=${WORKSPACE:-`pwd`}
-cd ${WORKSPACE}/build
+WORKSPACE=${WORKSPACE:-build}
+cd build
 make -j6
