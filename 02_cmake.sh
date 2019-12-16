@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-WORKSPACE=${WORKSPACE:-build}
+BUILD_DIR=${BUILD_DIR:-build}
 PYTHON_EXECUTABLE=${PYTHON_EXECUTABLE:-`which python3`}
 
-mkdir ${WORKSPACE}
-cd ${WORKSPACE}/..
+mkdir ${BUILD_DIR}
+cd ${BUILD_DIR}
 
 CMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER:-`which clang++-8`}
 CMAKE_C_COMPILER=${CMAKE_C_COMPILER:-`which clang-8`}
@@ -21,4 +21,5 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D PYTHON_EXECUTABLE=${PYTHON_EXECUTABLE} \
 	-D PYTHON2_EXECUTABLE=`which python2` \
 	-D BUILD_EXAMPLES=on \
-	opencv
+	../opencv
+
