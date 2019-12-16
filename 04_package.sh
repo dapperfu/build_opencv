@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-WORKSPACE=${WORKSPACE:-`pwd`}
-cd ${WORKSPACE}/build
+BUILD_DIR=${BUILD_DIR:-build}
+cd ${BUILD_DIR}
 sudo checkinstall --default --type debian --install=no \
-	--pkgname opencv4 --pkgversion "4.0.1" --pkglicense BSD \
+	--pkgname opencv_${OPENCV_VER}_${PYTHON_VER} --pkgversion ${OPENCV_VER}_${PYTHON_VER} \
 	--deldoc --deldesc --delspec -pakdir ~ \
-	--maintainer "`whoami`" --provides opevcv4 \
+	--maintainer "`whoami`" --provides opencv_${OPENCV_VER}_${PYTHON_VER} \
 	--addso --autodoinst make install
