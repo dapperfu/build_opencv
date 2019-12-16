@@ -8,6 +8,7 @@ export OPENCV_VER=${OPENCV_VER}
 # Python versions
 for PYTHON_VER in 3.8
 do
+    python${PYTHON_VER} -mvenv virtualenv_python${PYTHON_VER}
     export PYTHON_EXECUTABLE=virtualenv_python${PYTHON_VER}/bin/${PYTHON_VER}
     export BUILD_DIR=build_${OPENCV_VER}_${PYTHON_VER}
     # Build
