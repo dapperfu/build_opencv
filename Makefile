@@ -11,7 +11,6 @@ opencv:
 opencv_contrib:
 	git clone --recurse-submodules --branch=${OPENCV_VER} --depth=1 https://github.com/opencv/opencv_contrib.git
 
-
 .PHONY: src
 src: opencv opencv_contrib
 
@@ -21,3 +20,4 @@ clean.src:
 
 env:
 	python3 -mvenv .venv
+
