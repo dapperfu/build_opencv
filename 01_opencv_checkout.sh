@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 OPENCV_VER=${OPENCV_VER:-4.1.2}
 
 if [ ! -d "opencv" ] ; then

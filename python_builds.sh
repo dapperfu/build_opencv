@@ -19,6 +19,6 @@ do
     ./01_opencv_checkout.sh
     ./02_cmake.sh
     ./03_build.sh
-    ./04_package.sh
+    sudo ./04_package.sh
 done
 done
