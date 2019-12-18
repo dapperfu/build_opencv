@@ -1,6 +1,15 @@
-# build_opencv
-Git Repository to build a recent OpenCV4, with python integration.
+# OpenCV 4.x.x on Python 3.6, 3.7, 3.8
 
+Because you deserve a modern development environment.
+
+Script to build modern version of OpenCV, with non-free contributed modules enabled.
+
+Installs to:
+
+    /opt/opencv_4.1.2_py3.6/
+    /opt/opencv_4.1.2_py3.7/
+    /opt/opencv_4.1.2_py3.8/
+    
 # Usage
 
 ## Jenkins
