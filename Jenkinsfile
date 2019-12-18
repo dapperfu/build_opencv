@@ -6,14 +6,27 @@ pipeline {
         git(poll: true, url: 'https://github.com/jed-frey/build_opencv.git')
       }
     }
+
     stage('Create Environment ') {
-      steps {
-        sh '''
+      parallel {
+        stage('Create Environment ') {
+          steps {
+            sh '''
 # Create Python environment & install dependencies.
 make --directory=${WORKSPACE} env
 '''
+          }
+        }
+
+        stage('python_builds') {
+          steps {
+            sh '${WORKSPACE}/99_python_builds.sh'
+          }
+        }
+
       }
     }
+
     stage('OpenCV Checkout') {
       steps {
         timestamps() {
@@ -22,6 +35,7 @@ make --directory=${WORKSPACE} env
 
       }
     }
+
     stage('CMake') {
       steps {
         timestamps() {
@@ -30,6 +44,7 @@ make --directory=${WORKSPACE} env
 
       }
     }
+
     stage('Build') {
       steps {
         timestamps() {
@@ -38,6 +53,7 @@ make --directory=${WORKSPACE} env
 
       }
     }
+
     stage('Package') {
       steps {
         timestamps() {
@@ -46,10 +62,12 @@ make --directory=${WORKSPACE} env
 
       }
     }
+
     stage('Artifacts') {
       steps {
         archiveArtifacts(artifacts: '**.deb', allowEmptyArchive: true, fingerprint: true, onlyIfSuccessful: true)
       }
     }
+
   }
 }
