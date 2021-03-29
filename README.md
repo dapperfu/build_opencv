@@ -1,3 +1,6 @@
+
+**Deprecated**: Use https://pypi.org/project/opencv-python/
+
 # OpenCV 4.x.x on Python 3.6, 3.7, 3.8
 
 Because you deserve a modern development environment.
